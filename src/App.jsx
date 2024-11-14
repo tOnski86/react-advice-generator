@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 function App() {
   const [{ id, advice }, setAdvice] = useState({});
   const [generateAdvice, setGenerateAdvice] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   function handleGenerateAdvice() {
     setGenerateAdvice(!generateAdvice);
@@ -19,17 +20,28 @@ function App() {
 
       const { id, advice } = data.slip;
       setAdvice({ id, advice });
+      setAnimate(true);
     }
     getAdvice();
   }, [generateAdvice]);
 
   return (
     <div className='bg-grey px-6 sm:px-8 text-center mx-4 rounded-lg flex flex-col items-center pt-10 sm:max-w-lg'>
-      <h2 className='text-green text-[11px] sm:text-xs font-medium uppercase tracking-[0.3em] mb-6'>
+      <h2
+        className={`text-green text-[11px] sm:text-xs font-medium uppercase tracking-[0.3em] mb-6 ${
+          animate ? 'animate-expand' : ''
+        }`}
+        onAnimationEnd={() => setAnimate(false)}
+      >
         Advice #{id}
       </h2>
-      <blockquote className='transition-all ease-in-out [&:not(:empty)]:transition-all '>
-        <p className='text-white text-2xl sm:text-[28px] sm:leading-[2.2rem] font-bold animate-moveUp'>
+      <blockquote>
+        <p
+          className={`text-white text-2xl sm:text-[28px] sm:leading-[2.2rem] font-bold ${
+            animate ? 'animate-moveUp' : ''
+          }`}
+          onAnimationEnd={() => setAnimate(false)}
+        >
           &ldquo;{advice}&rdquo;
         </p>
       </blockquote>
