@@ -2,7 +2,18 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      dropShadow: {
+        glowBig: [
+          '0 0px 20px rgba(82,255, 168, 0.9)',
+          '0 0px 65px rgba(82,255, 168, 0.4)',
+        ],
+        glowSmall: [
+          '0 0px 20px rgba(82,255, 168, 0.7)',
+          '0 0px 65px rgba(82,255, 168, 0.2)',
+        ],
+      },
+    },
     colors: {
       white: 'hsl(193, 38%, 86%)',
       green: 'hsl(150, 100%, 66%)',
