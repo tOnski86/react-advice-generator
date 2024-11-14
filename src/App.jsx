@@ -26,7 +26,12 @@ function App() {
   }, [generateAdvice]);
 
   return (
-    <div className='bg-grey px-6 sm:px-8 text-center mx-4 rounded-lg flex flex-col items-center pt-10 sm:max-w-lg'>
+    <div
+      className={`bg-grey px-6 sm:px-8 text-center mx-4 rounded-lg flex flex-col items-center pt-10 sm:max-w-lg ${
+        animate ? 'transition-all' : ''
+      }`}
+      onAnimationEnd={() => setAnimate(false)}
+    >
       <h2
         className={`text-green text-[11px] sm:text-xs font-medium uppercase tracking-[0.3em] mb-6 ${
           animate ? 'animate-expand' : ''
