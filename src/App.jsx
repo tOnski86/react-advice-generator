@@ -28,8 +28,8 @@ function App() {
       <h2 className='text-green text-[11px] sm:text-xs font-medium uppercase tracking-[0.3em] mb-6'>
         Advice #{id}
       </h2>
-      <blockquote>
-        <p className='text-white text-2xl sm:text-[28px] sm:leading-[2.2rem] font-bold'>
+      <blockquote className='transition-all ease-in-out [&:not(:empty)]:transition-all '>
+        <p className='text-white text-2xl sm:text-[28px] sm:leading-[2.2rem] font-bold animate-moveUp'>
           &ldquo;{advice}&rdquo;
         </p>
       </blockquote>
